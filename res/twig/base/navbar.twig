@@ -1,0 +1,32 @@
+{% macro navbar_user(dropdown_id) %}
+    <li>
+        <a class="dropdown-trigger" href="#!" data-target="{{ dropdown_id }}">
+            <i class="material-icons right">account_box</i> Cuenta
+        </a>
+        <ul id="{{ dropdown_id }}" class="dropdown-content">
+            <li><a href="/user/login"><i class="material-icons">lock</i>Ingresar</a></li>
+            <li><a href="/user/register"><i class="material-icons">perm_identity</i>Registrarme</a></li>
+        </ul>
+    </li>
+{% endmacro %}
+
+{% import _self as navbar %}
+
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="/home" class="brand-logo">
+            <i class="material-icons">school</i>
+            SAO
+        </a>
+
+        <ul class="right hide-on-med-and-down">
+            {{ navbar.navbar_user('user_menu_large') }}
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+            {{ navbar.navbar_user('user_menu_mobil') }}
+        </ul>
+        <a href="#" data-target="nav-mobile" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>

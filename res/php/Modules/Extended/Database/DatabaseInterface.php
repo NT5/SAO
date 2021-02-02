@@ -1,0 +1,13 @@
+<?php
+
+namespace SAO\Modules\Extended\Database;
+
+use SAO\Modules\Extended\Database;
+
+interface DatabaseInterface {
+
+    /**
+     * @return Database
+     */
+    public function Database();
+}

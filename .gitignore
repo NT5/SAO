@@ -1,0 +1,7 @@
+/composer.lock
+/bower_components/
+/vendor/
+/nbproject/
+/compilation_cache/
+/.well-known/
+SSH_AGENT_PID_FILE

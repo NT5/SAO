@@ -1,0 +1,91 @@
+<?php
+
+namespace SAO\Application\Api;
+
+use SAO\Modules\Extended;
+use SAO\Modules\Extended\ExtendedExtended;
+use SAO\Modules\Util\Functions;
+
+/**
+ * 
+ */
+abstract class Area extends ExtendedExtended {
+
+    /**
+     *
+     * @var array
+     */
+    private $Vars = [];
+
+    /**
+     * 
+     * @param Extended $Extended
+     */
+    public function __construct(Extended $Extended = NULL) {
+        parent::__construct($Extended);
+
+        $this->setUp();
+        $this->CheckPost();
+        $this->initVars();
+    }
+
+    public abstract function setUp();
+
+    public abstract function CheckPost();
+
+    public abstract function initVars();
+
+    /**
+     * 
+     * @return array
+     */
+    public function getPost() {
+        $POST = filter_input_array(INPUT_POST);
+        return ($POST ?: []);
+    }
+
+    /**
+     * 
+     * @param string $name
+     * @param string $value
+     */
+    public function setVar($name, $value) {
+        Functions::set_array_value($this->Vars, $name, $value);
+    }
+
+    /**
+     * 
+     * @param array $vars
+     */
+    public function setVars(array $vars) {
+        foreach ($vars as $k => $v) {
+            $this->setVar($k, $v);
+        }
+    }
+
+    /**
+     * 
+     * @return array
+     */
+    public function getVars() {
+        return $this->Vars;
+    }
+
+    /**
+     * 
+     * @param string $name
+     * @return array
+     */
+    public function getVar($name) {
+        return Functions::get_array_value($this->Vars, $name);
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function display() {
+        return json_encode($this->Vars, JSON_PRETTY_PRINT);
+    }
+
+}

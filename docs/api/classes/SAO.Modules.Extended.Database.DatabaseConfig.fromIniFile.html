@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/SAO.html">\SAO</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">606</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">21</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-989413296"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-989413296" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-881179515"></a>
+                                <a href="../namespaces/SAO.html" style="margin-left: 30px; padding-left: 0">SAO</a>
+            </div>
+            <div id="namespace-881179515" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-693120425"></a>
+                                <a href="../namespaces/SAO.Application.html" style="margin-left: 30px; padding-left: 0">Application</a>
+            </div>
+            <div id="namespace-693120425" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-453785690"></a>
+                                <a href="../namespaces/SAO.Application.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-453785690" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-303218646"></a>
+                                <a href="../namespaces/SAO.Application.Api.Areas.html" style="margin-left: 30px; padding-left: 0">Areas</a>
+            </div>
+            <div id="namespace-303218646" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-784892071"></a>
+                                <a href="../namespaces/SAO.Application.Api.Areas.User.html" style="margin-left: 30px; padding-left: 0">User</a>
+            </div>
+            <div id="namespace-784892071" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.checkUser.html">checkUser</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.getUserByName.html">getUserByName</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.registerUser.html">registerUser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.Info.html">Info</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.Invalid.html">Invalid</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.html">User</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1820065403"></a>
+                                <a href="../namespaces/SAO.Application.Api.init.html" style="margin-left: 30px; padding-left: 0">init</a>
+            </div>
+            <div id="namespace-1820065403" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Api.init.initDisplay.html">initDisplay</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Api.init.initRoute.html">initRoute</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.ApiRoute.html">ApiRoute</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Area.html">Area</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1561417306"></a>
+                                <a href="../namespaces/SAO.Application.Web.html" style="margin-left: 30px; padding-left: 0">Web</a>
+            </div>
+            <div id="namespace-1561417306" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-360848696"></a>
+                                <a href="../namespaces/SAO.Application.Web.check.html" style="margin-left: 30px; padding-left: 0">check</a>
+            </div>
+            <div id="namespace-360848696" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.check.checkDatabase.html">checkDatabase</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.check.checkRoute.html">checkRoute</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-196058507"></a>
+                                <a href="../namespaces/SAO.Application.Web.dispose.html" style="margin-left: 30px; padding-left: 0">dispose</a>
+            </div>
+            <div id="namespace-196058507" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.dispose.disposeExtended.html">disposeExtended</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1117281012"></a>
+                                <a href="../namespaces/SAO.Application.Web.init.html" style="margin-left: 30px; padding-left: 0">init</a>
+            </div>
+            <div id="namespace-1117281012" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-227311341"></a>
+                                <a href="../namespaces/SAO.Application.Web.init.appInit.html" style="margin-left: 30px; padding-left: 0">appInit</a>
+            </div>
+            <div id="namespace-227311341" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.init.appInit.initUsers.html">initUsers</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.init.appInit.html">appInit</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initBasics.html">initBasics</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initDisplay.html">initDisplay</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initExtended.html">initExtended</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initRoute.html">initRoute</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-894632389"></a>
+                                <a href="../namespaces/SAO.Application.Web.Pages.html" style="margin-left: 30px; padding-left: 0">Pages</a>
+            </div>
+            <div id="namespace-894632389" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1771302049"></a>
+                                <a href="../namespaces/SAO.Application.Web.Pages.User.html" style="margin-left: 30px; padding-left: 0">User</a>
+            </div>
+            <div id="namespace-1771302049" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.User.Login.html">Login</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.User.Register.html">Register</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.Home.html">Home</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.UserTest.html">UserTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Web.WebRoute.html">WebRoute</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.html">Api</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Web.html">Web</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-245375636"></a>
+                                <a href="../namespaces/SAO.Modules.html" style="margin-left: 30px; padding-left: 0">Modules</a>
+            </div>
+            <div id="namespace-245375636" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-463177646"></a>
+                                <a href="../namespaces/SAO.Modules.App.html" style="margin-left: 30px; padding-left: 0">App</a>
+            </div>
+            <div id="namespace-463177646" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-641611885"></a>
+                                <a href="../namespaces/SAO.Modules.App.Users.html" style="margin-left: 30px; padding-left: 0">Users</a>
+            </div>
+            <div id="namespace-641611885" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-726824937"></a>
+                                <a href="../namespaces/SAO.Modules.App.Users.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-726824937" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.checkPassword.html">checkPassword</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.getUser.html">getUser</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.getUserByName.html">getUserByName</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.registerUser.html">registerUser</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.userNameExist.html">userNameExist</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.App.Users.UserEntry.html">UserEntry</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.App.Users.UserSession.html">UserSession</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.App.Users.html">Users</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1711564207"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.html" style="margin-left: 30px; padding-left: 0">Basics</a>
+            </div>
+            <div id="namespace-1711564207" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-182491236"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.Error.html" style="margin-left: 30px; padding-left: 0">Error</a>
+            </div>
+            <div id="namespace-182491236" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Basics.Error.ThrowableError.html">ThrowableError</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorAdition.html">ErrorAdition</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorChecks.html">ErrorChecks</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorGetter.html">ErrorGetter</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorTrait.html">ErrorTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.Error.ErrorCodes.html">ErrorCodes</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1930190500"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-1930190500" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Basics.Logger.Loggeable.html">Loggeable</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.Logger.LoggerAdition.html">LoggerAdition</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Logger.LoggerGetter.html">LoggerGetter</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Logger.LoggerTrait.html">LoggerTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.Logger.Log.html">Log</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1186252610"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.Warning.html" style="margin-left: 30px; padding-left: 0">Warning</a>
+            </div>
+            <div id="namespace-1186252610" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Basics.Warning.ThrowableWarning.html">ThrowableWarning</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningAdition.html">WarningAdition</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningChecks.html">WarningChecks</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningGetter.html">WarningGetter</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningTrait.html">WarningTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.Warning.WarningCodes.html">WarningCodes</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.BasicsTrait.html">BasicsTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.BasicsExtend.html">BasicsExtend</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.Errors.html">Errors</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.Logger.html">Logger</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.Warnings.html">Warnings</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-459659584"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.html" style="margin-left: 30px; padding-left: 0">Extended</a>
+            </div>
+            <div id="namespace-459659584" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-902374620"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Cookies.html" style="margin-left: 30px; padding-left: 0">Cookies</a>
+            </div>
+            <div id="namespace-902374620" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.Cookies.CookiesInterface.html">CookiesInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-227990532"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-227990532" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-740728624"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseConfig.html" style="margin-left: 30px; padding-left: 0">DatabaseConfig</a>
+            </div>
+            <div id="namespace-740728624" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.DatabaseConfigInterface.html">DatabaseConfigInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.fromIniFile.html">fromIniFile</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.saveToIni.html">saveToIni</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-682273724"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseInstaller.html" style="margin-left: 30px; padding-left: 0">DatabaseInstaller</a>
+            </div>
+            <div id="namespace-682273724" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1770152600"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFiles.html" style="margin-left: 30px; padding-left: 0">InstallFiles</a>
+            </div>
+            <div id="namespace-1770152600" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFiles.initFiles.html">initFiles</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFiles.html">InstallFiles</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFilesArea.html">InstallFilesArea</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-717641424"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseUtil.html" style="margin-left: 30px; padding-left: 0">DatabaseUtil</a>
+            </div>
+            <div id="namespace-717641424" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseUtil.sqlFromFile.html">sqlFromFile</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInterface.html">DatabaseInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.html">DatabaseConfig</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConnection.html">DatabaseConnection</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.html">DatabaseInstaller</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseUtil.html">DatabaseUtil</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1603657753"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.PageConfig.html" style="margin-left: 30px; padding-left: 0">PageConfig</a>
+            </div>
+            <div id="namespace-1603657753" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.PageConfig.PageConfigI.html">PageConfigI</a></li>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.PageConfig.PageConfigInterface.html">PageConfigInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.PageConfig.fromIniFile.html">fromIniFile</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Extended.PageConfig.saveToIni.html">saveToIni</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Cookies.html">Cookies</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.html">Database</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.ExtendedExtended.html">ExtendedExtended</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.PageConfig.html">PageConfig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2002362733"></a>
+                                <a href="../namespaces/SAO.Modules.Util.html" style="margin-left: 30px; padding-left: 0">Util</a>
+            </div>
+            <div id="namespace-2002362733" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-531771240"></a>
+                                <a href="../namespaces/SAO.Modules.Util.Files.html" style="margin-left: 30px; padding-left: 0">Files</a>
+            </div>
+            <div id="namespace-531771240" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Util.Files.load_ini_file.html">load_ini_file</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Files.set_ini_file.html">set_ini_file</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-306463519"></a>
+                                <a href="../namespaces/SAO.Modules.Util.Functions.html" style="margin-left: 30px; padding-left: 0">Functions</a>
+            </div>
+            <div id="namespace-306463519" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.checkArray.html">checkArray</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.get_array_value.html">get_array_value</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.getRealIpAddr.html">getRealIpAddr</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.integerToRoman.html">integerToRoman</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.mis_null.html">mis_null</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.parseDir.html">parseDir</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.redirect.html">redirect</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.set_array_value.html">set_array_value</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.startsWith.html">startsWith</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.strFormat.html">strFormat</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Util.Files.html">Files</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Util.Functions.html">Functions</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Util.ImgPicker.html">ImgPicker</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Util.Token.html">Token</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2064269180"></a>
+                                <a href="../namespaces/SAO.Modules.WebPage.html" style="margin-left: 30px; padding-left: 0">WebPage</a>
+            </div>
+            <div id="namespace-2064269180" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.WebPage.Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.WebPage.Twig.html">Twig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.html">Basics</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.html">Extended</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1066512378"></a>
+                                <a href="../namespaces/SAO.Test.html" style="margin-left: 30px; padding-left: 0">Test</a>
+            </div>
+            <div id="namespace-1066512378" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2112815365"></a>
+                                <a href="../namespaces/SAO.Test.Basics.html" style="margin-left: 30px; padding-left: 0">Basics</a>
+            </div>
+            <div id="namespace-2112815365" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-463573818"></a>
+                                <a href="../namespaces/SAO.Test.Basics.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-463573818" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Basics.Logger.LogTest.html">LogTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Basics.ErrorsTest.html">ErrorsTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Basics.LoggerTest.html">LoggerTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Basics.WarningsTest.html">WarningsTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1924839591"></a>
+                                <a href="../namespaces/SAO.Test.Extended.html" style="margin-left: 30px; padding-left: 0">Extended</a>
+            </div>
+            <div id="namespace-1924839591" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-179399879"></a>
+                                <a href="../namespaces/SAO.Test.Extended.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-179399879" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1552960850"></a>
+                                <a href="../namespaces/SAO.Test.Extended.Database.DatabaseInstaller.html" style="margin-left: 30px; padding-left: 0">DatabaseInstaller</a>
+            </div>
+            <div id="namespace-1552960850" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseInstaller.InstallFilesTest.html">InstallFilesTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseConfigTest.html">DatabaseConfigTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseConnectionTest.html">DatabaseConnectionTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseUtilTest.html">DatabaseUtilTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Extended.DatabaseTest.html">DatabaseTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Extended.PageConfigTest.html">PageConfigTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.BasicsTest.html">BasicsTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.SAO.html">SAO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseConfig.html">\SAO\Modules\Extended\Database\DatabaseConfig</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\SAO\Modules\Extended\Database\DatabaseConfig</small>fromIniFile</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.fromIniFile.html#method_fromIniFile" class="">fromIniFile()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Modules.Extended.Database.DatabaseConfig.fromIniFile.html"><div class="path-wrapper">Modules/Extended/Database/DatabaseConfig/fromIniFile.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\SAO\Modules\Extended\Database\DatabaseConfig\fromIniFile</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fromIniFile" name="method_fromIniFile" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fromIniFile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fromIniFile(\SAO\Modules\Basics  <span class="argument">$Basics = NULL</span>, string  <span class="argument">$inifile = &#039;config.ini&#039;</span>) : \SAO\Modules\Extended\Database\DatabaseConfig\PageConfig</pre>
+                <p><em>Regresa instancia de configuración de la base de datos cargada desde un archivo .ini valido</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/SAO.Modules.Basics.html">\SAO\Modules\Basics</a></td>
+                                <td>$Basics </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$inifile </td>
+                                <td><p>Ruta del archivo .ini en el servidor</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \SAO\Modules\Extended\Database\DatabaseConfig\PageConfig
+                                            &mdash; <p>Regresa instancia de configuracion creada</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.fromIniFile.html"><div class="path-wrapper">\SAO\Modules\Extended\Database\DatabaseConfig\fromIniFile</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">fromIniFile.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Modules/Extended/Database/DatabaseConfig/fromIniFile.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/SAO.html">\SAO</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on November 10th, 2018 at 19:17.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

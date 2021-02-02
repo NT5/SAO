@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php" verbose="true" convertNoticesToExceptions="false" stderr="true">
+    <php>
+        <ini name="date.timezone" value="GMT"/>
+    </php>
+    <testsuites>
+        <testsuite name="Basics">
+            <directory>res/php/Test/Basics</directory>
+            <file>res/php/Test/BasicsTest.php</file>
+        </testsuite>
+    </testsuites>
+    <testsuites>
+        <testsuite name="Extended">
+            <directory>res/php/Test/Extended</directory>
+        </testsuite>
+    </testsuites>
+    <testsuites>
+        <testsuite name="Util">
+            <directory>res/php/Test/Util</directory>
+        </testsuite>
+    </testsuites>
+    <testsuites>
+        <testsuite name="Application">
+            <directory>res/php/Test/Application</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">res/php/Test</directory>
+        </whitelist>
+    </filter>
+</phpunit>

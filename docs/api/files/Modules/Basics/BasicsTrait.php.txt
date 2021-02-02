@@ -1,0 +1,15 @@
+<?php
+
+namespace SAO\Modules\Basics;
+
+use SAO\Modules\Basics\Error;
+use SAO\Modules\Basics\Warning;
+use SAO\Modules\Basics\Logger;
+
+trait BasicsTrait {
+
+    use Error\ErrorTrait,
+        Warning\WarningTrait,
+        Logger\LoggerTrait;
+}
+

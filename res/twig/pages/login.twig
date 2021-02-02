@@ -1,0 +1,63 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <style type="text/css">
+        .login-form-text {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .profile-image-login {
+            width: 100px;
+            height: 100px !important;
+        }
+    </style>
+    <div class="container">
+        <h2 class="header">Ingresa tus datos de usuario</h2>
+        <div id="login-page" class="row valign-wrapper">
+            <div class="col m6 offset-m3 s12 offset-s0 valign z-depth-4 card-panel medium">
+                <form class="login-form" role="form" action="/home" method="post">
+                    <div class="row">
+                        <div class="input-field col s12 center">
+                            <img src="/img/Shape.png" class="circle responsive-img valign profile-image-login">
+                            <p class="center login-form-text">Silabo académico online</p>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5">person_outline</i>
+                            <input required name="username" id="username" class="validate" type="text">
+                            <label for="username" class="center-align">Nombre de usuario</label>
+                        </div>
+                    </div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix pt-5">lock_outline</i>
+                            <input required name="password" id="password" class="validate" type="password">
+                            <label for="password">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light col s12" type="submit" name="action">
+                                Ingresar
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin medium-small"><a href="register">¡Registrare ahora!</a></p>
+                        </div>
+                        <div class="input-field col s6 m6 l6">
+                            <p class="margin right-align medium-small"><a href="login">¿Olvidades tu contraseña?</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/pages/login.js"></script>
+    <script type="text/javascript" src="/libs/jquery-validation/jquery.validate.min.js"></script>
+{% endblock %}

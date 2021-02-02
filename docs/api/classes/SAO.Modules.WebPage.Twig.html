@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/SAO.html">\SAO</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">606</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">21</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1541925426"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1541925426" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1988253201"></a>
+                                <a href="../namespaces/SAO.html" style="margin-left: 30px; padding-left: 0">SAO</a>
+            </div>
+            <div id="namespace-1988253201" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-309156631"></a>
+                                <a href="../namespaces/SAO.Application.html" style="margin-left: 30px; padding-left: 0">Application</a>
+            </div>
+            <div id="namespace-309156631" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1116987009"></a>
+                                <a href="../namespaces/SAO.Application.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-1116987009" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-530635271"></a>
+                                <a href="../namespaces/SAO.Application.Api.Areas.html" style="margin-left: 30px; padding-left: 0">Areas</a>
+            </div>
+            <div id="namespace-530635271" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-128565179"></a>
+                                <a href="../namespaces/SAO.Application.Api.Areas.User.html" style="margin-left: 30px; padding-left: 0">User</a>
+            </div>
+            <div id="namespace-128565179" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.checkUser.html">checkUser</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.getUserByName.html">getUserByName</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.registerUser.html">registerUser</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.Info.html">Info</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.Invalid.html">Invalid</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Areas.User.html">User</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-47985180"></a>
+                                <a href="../namespaces/SAO.Application.Api.init.html" style="margin-left: 30px; padding-left: 0">init</a>
+            </div>
+            <div id="namespace-47985180" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Api.init.initDisplay.html">initDisplay</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Api.init.initRoute.html">initRoute</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.ApiRoute.html">ApiRoute</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Api.Area.html">Area</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-824148498"></a>
+                                <a href="../namespaces/SAO.Application.Web.html" style="margin-left: 30px; padding-left: 0">Web</a>
+            </div>
+            <div id="namespace-824148498" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-34104554"></a>
+                                <a href="../namespaces/SAO.Application.Web.check.html" style="margin-left: 30px; padding-left: 0">check</a>
+            </div>
+            <div id="namespace-34104554" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.check.checkDatabase.html">checkDatabase</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.check.checkRoute.html">checkRoute</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1946549152"></a>
+                                <a href="../namespaces/SAO.Application.Web.dispose.html" style="margin-left: 30px; padding-left: 0">dispose</a>
+            </div>
+            <div id="namespace-1946549152" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.dispose.disposeExtended.html">disposeExtended</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-377046787"></a>
+                                <a href="../namespaces/SAO.Application.Web.init.html" style="margin-left: 30px; padding-left: 0">init</a>
+            </div>
+            <div id="namespace-377046787" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1809496598"></a>
+                                <a href="../namespaces/SAO.Application.Web.init.appInit.html" style="margin-left: 30px; padding-left: 0">appInit</a>
+            </div>
+            <div id="namespace-1809496598" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.init.appInit.initUsers.html">initUsers</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Application.Web.init.appInit.html">appInit</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initBasics.html">initBasics</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initDisplay.html">initDisplay</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initExtended.html">initExtended</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Application.Web.init.initRoute.html">initRoute</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-583816386"></a>
+                                <a href="../namespaces/SAO.Application.Web.Pages.html" style="margin-left: 30px; padding-left: 0">Pages</a>
+            </div>
+            <div id="namespace-583816386" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-733182836"></a>
+                                <a href="../namespaces/SAO.Application.Web.Pages.User.html" style="margin-left: 30px; padding-left: 0">User</a>
+            </div>
+            <div id="namespace-733182836" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.User.Login.html">Login</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.User.Register.html">Register</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.Home.html">Home</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Web.Pages.UserTest.html">UserTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Web.WebRoute.html">WebRoute</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Application.Api.html">Api</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Application.Web.html">Web</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-655224118"></a>
+                                <a href="../namespaces/SAO.Modules.html" style="margin-left: 30px; padding-left: 0">Modules</a>
+            </div>
+            <div id="namespace-655224118" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1514666306"></a>
+                                <a href="../namespaces/SAO.Modules.App.html" style="margin-left: 30px; padding-left: 0">App</a>
+            </div>
+            <div id="namespace-1514666306" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1308500448"></a>
+                                <a href="../namespaces/SAO.Modules.App.Users.html" style="margin-left: 30px; padding-left: 0">Users</a>
+            </div>
+            <div id="namespace-1308500448" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2051952193"></a>
+                                <a href="../namespaces/SAO.Modules.App.Users.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-2051952193" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.checkPassword.html">checkPassword</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.getUser.html">getUser</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.getUserByName.html">getUserByName</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.registerUser.html">registerUser</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.App.Users.Database.userNameExist.html">userNameExist</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.App.Users.UserEntry.html">UserEntry</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.App.Users.UserSession.html">UserSession</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.App.Users.html">Users</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-909933268"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.html" style="margin-left: 30px; padding-left: 0">Basics</a>
+            </div>
+            <div id="namespace-909933268" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-82314240"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.Error.html" style="margin-left: 30px; padding-left: 0">Error</a>
+            </div>
+            <div id="namespace-82314240" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Basics.Error.ThrowableError.html">ThrowableError</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorAdition.html">ErrorAdition</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorChecks.html">ErrorChecks</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorGetter.html">ErrorGetter</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Error.ErrorTrait.html">ErrorTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.Error.ErrorCodes.html">ErrorCodes</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-709813324"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-709813324" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Basics.Logger.Loggeable.html">Loggeable</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.Logger.LoggerAdition.html">LoggerAdition</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Logger.LoggerGetter.html">LoggerGetter</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Logger.LoggerTrait.html">LoggerTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.Logger.Log.html">Log</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-888714680"></a>
+                                <a href="../namespaces/SAO.Modules.Basics.Warning.html" style="margin-left: 30px; padding-left: 0">Warning</a>
+            </div>
+            <div id="namespace-888714680" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Basics.Warning.ThrowableWarning.html">ThrowableWarning</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningAdition.html">WarningAdition</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningChecks.html">WarningChecks</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningGetter.html">WarningGetter</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Basics.Warning.WarningTrait.html">WarningTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.Warning.WarningCodes.html">WarningCodes</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Basics.BasicsTrait.html">BasicsTrait</a></li>
+                                                                            <li class="class"><a href="../classes/SAO.Modules.Basics.BasicsExtend.html">BasicsExtend</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.Errors.html">Errors</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.Logger.html">Logger</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.Warnings.html">Warnings</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-786703324"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.html" style="margin-left: 30px; padding-left: 0">Extended</a>
+            </div>
+            <div id="namespace-786703324" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-300347694"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Cookies.html" style="margin-left: 30px; padding-left: 0">Cookies</a>
+            </div>
+            <div id="namespace-300347694" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.Cookies.CookiesInterface.html">CookiesInterface</a></li>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-225609460"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-225609460" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2000005813"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseConfig.html" style="margin-left: 30px; padding-left: 0">DatabaseConfig</a>
+            </div>
+            <div id="namespace-2000005813" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.DatabaseConfigInterface.html">DatabaseConfigInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.fromIniFile.html">fromIniFile</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.saveToIni.html">saveToIni</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1411877758"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseInstaller.html" style="margin-left: 30px; padding-left: 0">DatabaseInstaller</a>
+            </div>
+            <div id="namespace-1411877758" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-198206959"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFiles.html" style="margin-left: 30px; padding-left: 0">InstallFiles</a>
+            </div>
+            <div id="namespace-198206959" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFiles.initFiles.html">initFiles</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFiles.html">InstallFiles</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.InstallFilesArea.html">InstallFilesArea</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1177794948"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.Database.DatabaseUtil.html" style="margin-left: 30px; padding-left: 0">DatabaseUtil</a>
+            </div>
+            <div id="namespace-1177794948" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.Database.DatabaseUtil.sqlFromFile.html">sqlFromFile</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInterface.html">DatabaseInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConfig.html">DatabaseConfig</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseConnection.html">DatabaseConnection</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseInstaller.html">DatabaseInstaller</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.DatabaseUtil.html">DatabaseUtil</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1352610618"></a>
+                                <a href="../namespaces/SAO.Modules.Extended.PageConfig.html" style="margin-left: 30px; padding-left: 0">PageConfig</a>
+            </div>
+            <div id="namespace-1352610618" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.PageConfig.PageConfigI.html">PageConfigI</a></li>
+                                                    <li class="interface"><a href="../classes/SAO.Modules.Extended.PageConfig.PageConfigInterface.html">PageConfigInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Extended.PageConfig.fromIniFile.html">fromIniFile</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Extended.PageConfig.saveToIni.html">saveToIni</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Cookies.html">Cookies</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.Database.html">Database</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.ExtendedExtended.html">ExtendedExtended</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.PageConfig.html">PageConfig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1926888808"></a>
+                                <a href="../namespaces/SAO.Modules.Util.html" style="margin-left: 30px; padding-left: 0">Util</a>
+            </div>
+            <div id="namespace-1926888808" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1001228886"></a>
+                                <a href="../namespaces/SAO.Modules.Util.Files.html" style="margin-left: 30px; padding-left: 0">Files</a>
+            </div>
+            <div id="namespace-1001228886" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Util.Files.load_ini_file.html">load_ini_file</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Files.set_ini_file.html">set_ini_file</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-248126641"></a>
+                                <a href="../namespaces/SAO.Modules.Util.Functions.html" style="margin-left: 30px; padding-left: 0">Functions</a>
+            </div>
+            <div id="namespace-248126641" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.checkArray.html">checkArray</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.get_array_value.html">get_array_value</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.getRealIpAddr.html">getRealIpAddr</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.integerToRoman.html">integerToRoman</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.mis_null.html">mis_null</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.parseDir.html">parseDir</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.redirect.html">redirect</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.set_array_value.html">set_array_value</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.startsWith.html">startsWith</a></li>
+                                                    <li class="trait"><a href="../classes/SAO.Modules.Util.Functions.strFormat.html">strFormat</a></li>
+                                                                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Util.Files.html">Files</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Util.Functions.html">Functions</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Util.ImgPicker.html">ImgPicker</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Util.Token.html">Token</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1461668337"></a>
+                                <a href="../namespaces/SAO.Modules.WebPage.html" style="margin-left: 30px; padding-left: 0">WebPage</a>
+            </div>
+            <div id="namespace-1461668337" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.WebPage.Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.WebPage.Twig.html">Twig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Modules.Basics.html">Basics</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Modules.Extended.html">Extended</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1232899724"></a>
+                                <a href="../namespaces/SAO.Test.html" style="margin-left: 30px; padding-left: 0">Test</a>
+            </div>
+            <div id="namespace-1232899724" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-699071026"></a>
+                                <a href="../namespaces/SAO.Test.Basics.html" style="margin-left: 30px; padding-left: 0">Basics</a>
+            </div>
+            <div id="namespace-699071026" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1377376571"></a>
+                                <a href="../namespaces/SAO.Test.Basics.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-1377376571" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Basics.Logger.LogTest.html">LogTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Basics.ErrorsTest.html">ErrorsTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Basics.LoggerTest.html">LoggerTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Basics.WarningsTest.html">WarningsTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1404722665"></a>
+                                <a href="../namespaces/SAO.Test.Extended.html" style="margin-left: 30px; padding-left: 0">Extended</a>
+            </div>
+            <div id="namespace-1404722665" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-170872108"></a>
+                                <a href="../namespaces/SAO.Test.Extended.Database.html" style="margin-left: 30px; padding-left: 0">Database</a>
+            </div>
+            <div id="namespace-170872108" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-35351247"></a>
+                                <a href="../namespaces/SAO.Test.Extended.Database.DatabaseInstaller.html" style="margin-left: 30px; padding-left: 0">DatabaseInstaller</a>
+            </div>
+            <div id="namespace-35351247" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseInstaller.InstallFilesTest.html">InstallFilesTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseConfigTest.html">DatabaseConfigTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseConnectionTest.html">DatabaseConnectionTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Extended.Database.DatabaseUtilTest.html">DatabaseUtilTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.Extended.DatabaseTest.html">DatabaseTest</a></li>
+                                                    <li class="class"><a href="../classes/SAO.Test.Extended.PageConfigTest.html">PageConfigTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.Test.BasicsTest.html">BasicsTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/SAO.SAO.html">SAO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/SAO.Modules.WebPage.html">\SAO\Modules\WebPage</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\SAO\Modules\WebPage</small>Twig</h1>
+                    <p><em>Clase principal contenedora de los métodos para manejar plantillas en formato Twig</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_setTemplate" class="">setTemplate()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_getTemplate" class="">getTemplate()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_addFilter" class="">addFilter()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_addExtension" class="">addExtension()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_setLexer" class="">setLexer()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_getEnvironment" class="">getEnvironment()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_setVar" class="">setVar()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_setVars" class="">setVars()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_getVars" class="">getVars()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_getVar" class="">getVar()</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#method_getRender" class="">getRender()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#property_Template_File" class="">$Template_File</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Template_Folder" class="">$Twig_Template_Folder</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Vars" class="">$Twig_Vars</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Loader_Filesystem" class="">$Twig_Loader_Filesystem</a><br />
+                                                                    <a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Environment" class="">$Twig_Environment</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Modules.WebPage.Twig.html"><div class="path-wrapper">Modules/WebPage/Twig.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\SAO\Modules\WebPage\Twig</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://twig.sensiolabs.org/doc/1.x/templates.html"><span class="namespace-wrapper">https://twig.sensiolabs.org/doc/1.x/templates.html</span></a></dd>
+                                                                            
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_Template_File" name="property_Template_File" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$Template_File</h3>
+                <pre class="signature">$Template_File : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; Ubicación del archivo de la plantilla Twig que esta ubicado en $Twig_Template_Folder por defecto es base.twig                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Template_Folder"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Twig_Template_Folder</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_Twig_Template_Folder" name="property_Twig_Template_Folder" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$Twig_Template_Folder</h3>
+                <pre class="signature">$Twig_Template_Folder : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; Carpeta base contenedora de todas las plantillas Twig. por defecto esta ubicado en la carpeta twig                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_Twig_Vars" name="property_Twig_Vars" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$Twig_Vars</h3>
+                <pre class="signature">$Twig_Vars : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Set de Variables manejadas y transmitidas a las plantillas Twig                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_Twig_Loader_Filesystem" name="property_Twig_Loader_Filesystem" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$Twig_Loader_Filesystem</h3>
+                <pre class="signature">$Twig_Loader_Filesystem : \Twig_Loader_Filesystem</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \Twig_Loader_Filesystem
+                &mdash; Componente del módulo Twig que maneja directorios de plantillas                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://twig.symfony.com/doc/1.x/api.html"><span class="namespace-wrapper">https://twig.symfony.com/doc/1.x/api.html</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_Twig_Environment" name="property_Twig_Environment" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$Twig_Environment</h3>
+                <pre class="signature">$Twig_Environment : \Twig_Environment</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \Twig_Environment
+                &mdash; Componente de módulo Twig que maneja la configuración principal.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://twig.symfony.com/doc/1.x/api.html"><span class="namespace-wrapper">https://twig.symfony.com/doc/1.x/api.html</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$Twig_File = &#039;base.twig&#039;</span>, array  <span class="argument">$Twig_Folder = array(__DIR__, &quot;..&quot;, &quot;..&quot;, &quot;..&quot;, &#039;twig&#039;)</span>, array  <span class="argument">$Twig_Cache = array(__DIR__, &quot;..&quot;, &quot;..&quot;, &quot;..&quot;, &quot;..&quot;, &#039;compilation_cache&#039;)</span>) </pre>
+                <p><em>Función constructora de la clase. Establece todos los valores de configuracion por defecto.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$Twig_File </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$Twig_Folder </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$Twig_Cache </td>
+                                <td><p>Es necesario crear un objeto antes de ejecutar cualquier método</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                                                            <h4>Examples</h4>
+                                                                <h5>Creacion del objeto Twig</h5>
+                        <pre class="pre-scrollable">$Twig = new \SAO\Modules\WebPage\Twig();
+No requiere compontes adicionales. 
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setTemplate" name="method_setTemplate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setTemplate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setTemplate(string  <span class="argument">$template</span>) </pre>
+                <p><em>Establece el archivo que será usado de plantilla en el objeto actual.</em></p>
+                <p>El Archivo tiene que estar ubicado en $Twig_Template_Folder.
+Solo se puede cargar un archivo por objeto, si quieres cargar más de uno tiene que usar la sintaxis Twig</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$template </td>
+                                <td><p>Nombre del archivo o ubicación relativa a $Twig_Template_Folder</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                                                            <h4>Examples</h4>
+                                                                <h5>Establecer archivo de plantilla</h5>
+                        <pre class="pre-scrollable">&gt; $Twig-&gt;setTemplate($template);
+
+$Twig = new \SAO\Modules\WebPage\Twig();
+
+**Carga de plantilla Twig en directorio raíz**
+$Twig-&gt;setTemplate(&#039;home.twig&#039;);
+
+**Carga de plantilla Twig en subdirectorios**
+$Twig-&gt;setTemplate(&#039;pages/home.twig&#039;);
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Template_Folder"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Twig_Template_Folder</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getTemplate" name="method_getTemplate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getTemplate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getTemplate() : string</pre>
+                <p><em>Regresa el valor de $Template_File</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Archivo o ubicación relativa de la plantilla actual</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Template_File"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Template_File</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addFilter" name="method_addFilter" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addFilter()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addFilter(string  <span class="argument">$filter_name</span>, string  <span class="argument">$filter_function</span>) </pre>
+                <p><em>Añade filtros del módulo Twig</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$filter_name </td>
+                                <td><p>Nombre del filtro que sera llamado desde las plantillas Twig</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$filter_function </td>
+                                <td><p>Funcion PHP que sera invocada en las plantillas Twig</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                                                            <h4>Examples</h4>
+                                                                <h5>Establece un filtro nuevo</h5>
+                        <pre class="pre-scrollable">&gt; $Twig-&gt;addFilter($filter_name, $filter_function);
+
+**Filtro Personalizado de la función date**
+$Twig-&gt;addFilter(&#039;date&#039;, function ($timestamp, $format = &#039;F j, Y H:i&#039;) {
+    // do something different from the built-in date filter
+}));
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://twig.symfony.com/doc/1.x/filters/index.html"><span class="namespace-wrapper">https://twig.symfony.com/doc/1.x/filters/index.html</span></a></dd>
+                                            <dd><a href="https://twig.symfony.com/doc/1.x/advanced.html"><span class="namespace-wrapper">https://twig.symfony.com/doc/1.x/advanced.html</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addExtension" name="method_addExtension" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addExtension()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addExtension(\SAO\Modules\WebPage\interface  <span class="argument">$extension</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\SAO\Modules\WebPage\interface</td>
+                                <td>$extension </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLexer" name="method_setLexer" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLexer()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLexer(\SAO\Modules\WebPage\type  <span class="argument">$lexer</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\SAO\Modules\WebPage\type</td>
+                                <td>$lexer </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getEnvironment" name="method_getEnvironment" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getEnvironment()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getEnvironment() : \SAO\Modules\WebPage\type</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \SAO\Modules\WebPage\type
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setVar" name="method_setVar" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setVar()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setVar(string  <span class="argument">$name</span>, string|array  <span class="argument">$value</span>) </pre>
+                <p><em>Agrega variables que serán usadas posteriormente en la plantilla Twig</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Nombre de la variable (Pueden ser multidimensionales separadas por un punto)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string|array</td>
+                                <td>$value </td>
+                                <td><p>Valor de la variable puede ser un array o cualquier tipo de objeto</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                                                            <h4>Examples</h4>
+                                                                <h5>Añade variables</h5>
+                        <pre class="pre-scrollable">&gt; $Twig-&gt;setVar($name, $value);
+
+**Agrega variables al modulo**
+$Twig-&gt;setVar(&#039;foo&#039;, &#039;bar&#039;);
+
+**Agrega variable multidimensional**
+$Twig-&gt;setVar(&#039;foo.bar&#039;, &#039;foo&#039;);
+
+**Agrega un arreglo como variable**
+$Twig-&gt;setVar(&#039;foo&#039;, array(&#039;foo&#039; =&gt; &#039;bar&#039;));
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setVars" name="method_setVars" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setVars()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setVars(array  <span class="argument">$vars</span>) </pre>
+                <p><em>Agrega un arreglo de variables a la plantilla</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$vars </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                                                            <h4>Examples</h4>
+                                                                <h5>Añade variables</h5>
+                        <pre class="pre-scrollable">&gt; $Twig-&gt;setVars(array $vars);
+
+$Twig-&gt;setVars(array(
+	&#039;foo&#039; =&gt; &#039;bar&#039;,
+	&#039;bar&#039; =&gt; &#039;foo&#039;,
+	&#039;a&#039; =&gt; array(
+            &#039;b&#039; =&gt; &#039;c&#039;
+	)
+));
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getVars" name="method_getVars" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getVars()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getVars() : array</pre>
+                <p><em>Regresa el valor de $Twig_Vars</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Vars"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Twig_Vars</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getVar" name="method_getVar" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getVar()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getVar(string  <span class="argument">$name</span>) </pre>
+                <p><em>Regresa el valor de una variable ubicada en $Twig_Vars.</em></p>
+                <p>El nombre puede estar separado por puntos en variables multidimensionales</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Indice dentro de $Twig_Vars</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                                                            <h4>Examples</h4>
+                                                                <h5>Retorna variable</h5>
+                        <pre class="pre-scrollable">&gt; $Twig-&gt;getVar($name);
+
+**Regresa el valor de la variable foo**
+$Twig-&gt;getVar(&#039;foo&#039;);
+
+**Regresa el valor de la varible foo.bar**
+$Twig-&gt;getVar(&#039;foo.bar&#039;);
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Vars"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Twig_Vars</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRender" name="method_getRender" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRender()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRender() : string</pre>
+                <p><em>Compila la plantilla Twig y regresa un string listo para ser mostrado</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    
+                                                            <h4>Examples</h4>
+                                                                <h5>Muestra plantilla</h5>
+                        <pre class="pre-scrollable">&gt; $Twig-&gt;getRender();
+echo $Twig-&gt;getRender();</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/SAO.Modules.WebPage.Twig.html"><div class="path-wrapper">\SAO\Modules\WebPage\Twig</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Environment"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Twig_Environment</span></a></dd>
+                                            <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Template_File"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Template_File</span></a></dd>
+                                            <dd><a href="../classes/SAO.Modules.WebPage.Twig.html#property_Twig_Vars"><span class="namespace-wrapper">\SAO\Modules\WebPage\Twig::$Twig_Vars</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Twig.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Modules/WebPage/Twig.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/SAO.html">\SAO</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on November 10th, 2018 at 19:17.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

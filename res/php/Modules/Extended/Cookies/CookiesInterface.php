@@ -1,0 +1,13 @@
+<?php
+
+namespace SAO\Modules\Extended\Cookies;
+
+use SAO\Modules\Extended\Cookies;
+
+interface CookiesInterface {
+
+    /**
+     * @return Cookies
+     */
+    public function Cookies();
+}

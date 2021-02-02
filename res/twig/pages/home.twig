@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container">
+        <h1>WIP</h1>
+    </div>
+    {% if sao.page.config.getEnableDebug %}
+        <!-- Debug area -->
+        {{ include('elements/debug/debugArea.twig') }}
+        <!-- End debug area-->
+    {% endif %}
+{% endblock %}

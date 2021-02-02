@@ -1,0 +1,31 @@
+Options All -Indexes
+
+RedirectMatch 403 ^/res/gfx/ps/.*$
+RedirectMatch 403 ^/res/php/.*$
+RedirectMatch 403 ^/res/sql/.*$
+RedirectMatch 403 ^/res/twig/.*$
+RedirectMatch 403 ^/compilation_cache/.*$
+RedirectMatch 403 ^/vendor/.*$
+
+RewriteEngine On
+
+RewriteRule ^libs/jquery(/.*)?$ ./bower_components/jquery/dist/$1
+RewriteRule ^libs/jquery-validation(/.*)?$ ./bower_components/jquery-validation/dist/$1
+RewriteRule ^libs/materialize(/.*)?$ ./bower_components/materialize/dist/$1
+RewriteRule ^img(/.*)?$ ./res/gfx/img/$1
+RewriteRule ^css(/.*)?$ ./res/css/$1
+RewriteRule ^js(/.*)?$ ./res/js/$1
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^api/(\w+)*$ ./api.php?p=$1
+RewriteRule ^api/user/(\w+)*$ ./api.php?p=user&user=$1
+
+RewriteRule ^(\w+)*$ ./index.php?p=$1
+RewriteRule ^user/(\w+)*$ ./index.php?p=user&user=$1
+
+<Files config.ini>
+    order allow,deny
+    deny from all
+</Files>
