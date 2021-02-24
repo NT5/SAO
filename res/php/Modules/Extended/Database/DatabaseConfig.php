@@ -48,7 +48,7 @@ class DatabaseConfig extends Basics\BasicsExtend implements DatabaseConfig\Datab
 
         $this->server = ($server) ?: "localhost";
         $this->username = ($username) ?: "default";
-        $this->password = ($password) ?: "default";
+        $this->password = ($password) ?: "";
         $this->database = ($database) ?: "uml_sao";
 
         $this->Basics()->setLog("Nueva instancia de configuración de base de datos creada");
