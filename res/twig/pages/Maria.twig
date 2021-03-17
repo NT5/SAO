@@ -9,6 +9,18 @@
             <form class="col s12" method="POST">
                 <div class="row">
                     <div class="input-field col s6">
+                        <select name='Municipios'>
+                            <option value="" disabled selected>Elige un Municipio</option>
+                            {% for Municipios in listaMunicipios %}
+                                <option value="{{ Municipios.Id_Ped }}">{{ Municipios.Nombre }}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Municipio</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s6">
                         <select name='carrera'>
                             <option value="" disabled selected>Elige una carrera</option>
                             {% for carrera in listaCarreras %}
