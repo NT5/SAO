@@ -15,7 +15,7 @@
                                 <option value="{{ carrera.Id_Carrera }}">{{ carrera.Nombre }}</option>
                             {% endfor %}
                         </select>
-                        <label>Carrara</label>
+                        <label>Carrera</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="Año_de_la_Carrera" type="text" class="validate" name='año_carrera'>
@@ -28,8 +28,13 @@
                         <label for="Trimestre"></label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="Nombre_de_la_Asignatura" type="text" class="validate" name='nombre_asignatura'>
-                        <label for="Nombre_de_la_Asignatura">Nombre de la Asignatura</label>
+                        <select name='Asignaturas'>
+                            <option value="" disabled selected>Elige una Asignatura</option>
+                            {% for Asignaturas in listaAsignaturas %}
+                                <option value="{{ Asignaturas.Id_Asignatura }}">{{ Asignaturas.Nombre }}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Asignaturas</label>
                     </div>
                 </div>
                 <div class="row">

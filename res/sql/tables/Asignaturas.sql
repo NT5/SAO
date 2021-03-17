@@ -6,3 +6,4 @@ CREATE TABLE IF NOT EXISTS `Asignaturas` (
  UNIQUE KEY(`Cod_Interno`),
  PRIMARY KEY (`Id_Asignatura`)
 );
+
