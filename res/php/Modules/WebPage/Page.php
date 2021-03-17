@@ -48,6 +48,10 @@ class Page extends ExtendedExtended {
         $this->setFilters();
 
         $this->setTemplate($this->getPageTemplate());
+
+        if ($this->getPost()) {
+            $this->CheckPost();
+        }
     }
 
     public function CheckPost() {
