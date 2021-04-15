@@ -2,6 +2,11 @@
 
 {% block content %}
     <div class="container">
+        {% if nueva_entrada %}
+            <div class="valign-wrapper">
+                <h5>Se agrego una nueva entrada al silabo</h5>
+            </div>
+        {% endif %}
         <br>
         <br>
         <br>
@@ -30,7 +35,7 @@
                         <label>Carrera</label>
                     </div>
                     <div class="input-field col s6">
-                        <select name='Año_Carrera'>
+                        <select name='Anio_Carrera'>
                             <option value="" disabled selected>Elige un Año</option>
                             <option value="1">I</option>
                             <option value="2">II</option>
@@ -102,13 +107,13 @@
                         <select name='evaluacion'>
                             <option value="" disabled selected>Elige el Tipo de Evaluación</option>
                             <option value="Examen">Examen</option>
-                            <option value="Trabajo_de_curso">Trabajo de Curso</option>
-                            <option value="Proyecto_de_curso">Proyecto de Curso</option>
+                            <option value="Trabajo de Curso">Trabajo de Curso</option>
+                            <option value="Proyecto de Curso">Proyecto de Curso</option>
                         </select>
                         <label>Evaluación</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="año" type="number" class="validate" name='año'>
+                        <input id="año" type="number" class="validate" name='anio_lectivo'>
                         <label for="año">Año Lectivo</label>
                     </div>
                 </div>  

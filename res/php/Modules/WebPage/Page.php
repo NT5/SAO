@@ -126,8 +126,12 @@ class Page extends ExtendedExtended {
      * 
      * @return array
      */
-    public function getPost() {
-        $POST = filter_input_array(INPUT_POST);
+    public function getPost($area = null) {
+        if (!$area) {
+            $POST = filter_input_array(INPUT_POST);
+        } else {
+            $POST = filter_input(INPUT_POST, $area);
+        }
         return $POST;
     }
 
