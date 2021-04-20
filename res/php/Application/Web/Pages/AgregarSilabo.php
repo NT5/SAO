@@ -22,7 +22,7 @@ class AgregarSilabo extends Page {
      */
     public function __construct(Extended $Extended = NULL) {
         $this->SilaboEntradas = new SilaboEntradas($Extended);
-        parent::__construct($Extended, "Maria", "pages/silabos/agregar_silabo.twig");
+        parent::__construct($Extended, "Agregar silabo", "pages/silabos/agregar_silabo.twig");
 
         $this->Carreras = new Carreras($this->Extended());
         $this->Asignaturas = new Asignaturas($this->Extended());

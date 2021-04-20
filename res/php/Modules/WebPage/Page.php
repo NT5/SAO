@@ -52,6 +52,8 @@ class Page extends ExtendedExtended {
         if ($this->getPost()) {
             $this->CheckPost();
         }
+
+        $this->preparePage();
     }
 
     public function CheckPost() {
@@ -64,6 +66,10 @@ class Page extends ExtendedExtended {
 
     public function initTwigTemplate() {
         
+    }
+
+    private function preparePage() {
+        $this->setVar("sao.page.title", $this->getPageTitle());
     }
 
     /**
