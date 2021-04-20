@@ -29,6 +29,7 @@ trait initRoute {
         $Route
                 ->addRoute(new WebRoute('home', Pages\Home::class, $Ex))
                 ->addRoute(new WebRoute('agregar_silabo', Pages\AgregarSilabo::class, $Ex))
+                ->addRoute(new WebRoute('agregar_silabo_datos', Pages\AgregarSilaboDatos::class, $Ex))
                 ->addRoute(new WebRoute('usertest', Pages\UserTest::class, $Ex))
                 ->addRoute($User);
 

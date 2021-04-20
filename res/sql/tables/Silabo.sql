@@ -47,3 +47,24 @@ CREATE TABLE `silabo_entradas` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+
+CREATE TABLE `silabo_datos` (
+	`id_entrada` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`id_silabo` INT(11) NOT NULL,
+	`n_encuentro` INT(11) NOT NULL,
+	`fecha_encuentro` DATE NOT NULL,
+	`unidad` VARCHAR(15) NOT NULL COLLATE 'latin1_swedish_ci',
+	`objetivos_unidad` TEXT NOT NULL COLLATE 'latin1_swedish_ci',
+	`contenidos_tematicos` TEXT NOT NULL COLLATE 'latin1_swedish_ci',
+	`formas_ensenanzas` TINYTEXT NOT NULL COLLATE 'latin1_swedish_ci',
+	`metodologias` TEXT NOT NULL COLLATE 'latin1_swedish_ci',
+	`h_precenciales` INT(11) NOT NULL,
+	`h_estudio_independiente` INT(11) NOT NULL,
+	`evaluacion` TEXT NOT NULL COLLATE 'latin1_swedish_ci',
+	`observaciones` TINYTEXT NOT NULL COLLATE 'latin1_swedish_ci',
+	PRIMARY KEY (`id_entrada`) USING BTREE,
+	INDEX `FK_silabo_datos_silabo_entradas` (`id_silabo`) USING BTREE,
+	CONSTRAINT `FK_silabo_datos_silabo_entradas` FOREIGN KEY (`id_silabo`) REFERENCES `uml_sao`.`silabo_entradas` (`Id_Silabo`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB;
