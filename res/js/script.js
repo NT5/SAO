@@ -16,6 +16,8 @@
             'constrainWidth': false
         });
         $('select').formSelect();
+        $('input.countable, textarea.countable').characterCounter();
+        $('.datepicker').datepicker();
 
     }); // end of document ready
 })(jQuery); // end of jQuery name space

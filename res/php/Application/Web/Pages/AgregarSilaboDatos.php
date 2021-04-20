@@ -11,4 +11,8 @@ class AgregarSilaboDatos extends Page {
         parent::__construct($Extended, "Agregar datos", "pages/silabos/agregar_silabo_datos.twig");
     }
 
+    public function CheckPost() {
+        
+    }
+    
 }

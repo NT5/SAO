@@ -2,6 +2,71 @@
 
 {% block content %}
     <div class="container">
-        
+        <br><br>
+        <form>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="n_encuentros" type="number" data-length="10">
+                    <label for="n_encuentros">No. de Encuentros</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">event</i>
+                    <input id="fecha_encuentro" type="text" class="datepicker">
+                    <label for="fecha_encuentro">Fecha</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <textarea id="unidad" class="materialize-textarea countable"></textarea>
+                    <label for="unidad">Unidad</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="objetivos" class="materialize-textarea countable"></textarea>
+                    <label for="unidad">Objetivos de la unidad</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="contenidos_tematicos" class="materialize-textarea countable"></textarea>
+                    <label for="contenidos_tematicos">Contenidos temáticos</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="forma_ensenanzas" class="materialize-textarea countable"></textarea>
+                    <label for="forma_enzenanzas">Forma organizativa de la enseñanza</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="metodologias" class="materialize-textarea countable"></textarea>
+                    <label for="metodologias">Metodología / estrategias/ ejes transversales</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="h_presenciales" type="number" data-length="10">
+                    <label for="h_presenciales">Horas Presenciales</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="h_estudio_independiente" type="number" data-length="10">
+                    <label for="h_estudio_independiente">Horas de estudio independiente</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <textarea id="evaluacion" class="materialize-textarea countable"></textarea>
+                    <label for="evaluacio">Evaluacion</label>
+                </div>
+                <div class="input-field col s6">
+                    <textarea id="observaciones" class="materialize-textarea countable"></textarea>
+                    <label for="observaciones">Observaciones</label>
+                </div>
+                
+            </div>
+            
+        </form>
     </div>
 {% endblock %}
