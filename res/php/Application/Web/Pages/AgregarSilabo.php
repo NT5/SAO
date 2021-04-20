@@ -9,7 +9,7 @@ use SAO\Modules\App\Asignaturas;
 use SAO\Modules\App\Municipios;
 use SAO\Modules\App\SilaboEntradas;
 
-class Maria extends Page {
+class AgregarSilabo extends Page {
 
     private $Carreras;
     private $Asignaturas;
@@ -22,7 +22,7 @@ class Maria extends Page {
      */
     public function __construct(Extended $Extended = NULL) {
         $this->SilaboEntradas = new SilaboEntradas($Extended);
-        parent::__construct($Extended, "Maria", "pages/Maria.twig");
+        parent::__construct($Extended, "Maria", "pages/silabos/agregar_silabo.twig");
 
         $this->Carreras = new Carreras($this->Extended());
         $this->Asignaturas = new Asignaturas($this->Extended());
