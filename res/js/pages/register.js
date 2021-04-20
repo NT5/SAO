@@ -98,7 +98,7 @@ $(document).ready(function () {
         },
         submitHandler: function (form) {
             $.ajax({
-                url: '/api/user/registerUser',
+                url: './api/user/registerUser',
                 type: 'POST',
                 data: $(form).serialize(),
                 datatype: 'json',
