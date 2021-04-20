@@ -27,7 +27,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: "/api/user/checkUser",
+                url: "./api/user/checkUser",
                 data: {
                     'name': username
                 },

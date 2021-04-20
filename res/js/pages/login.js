@@ -9,7 +9,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: "/api/user/getUserByName",
+                url: "./api/user/getUserByName",
                 data: {
                     'name': username
                 },
