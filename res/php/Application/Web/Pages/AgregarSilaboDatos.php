@@ -16,6 +16,17 @@ class AgregarSilaboDatos extends Page {
     }
 
     public function CheckPost() {
+        $n_encuentro = $this->getPost('No_de_encuentros');
+        $fecha_encuentro = $this->getPost('Fecha');
+        $unidad = $this->getPost('Unidad');
+        $objetivos_unidad = $this->getPost('Objetivos_de_la_unidad');
+        $contenidos_tematicos = $this->getPost('Contenidos_tem');
+        $formas_ensenanzas = $this->getPost('Formas_organizativas_de_la_enseñanza');
+        $metodologias = $this->getPost('metodologias_estrategias_ejes_transversales');
+        $h_precenciales = $this->getPost('horas_presenciales');
+        $h_estudio_independiente = $this->getPost('horas_estudio_independiente');
+        $evaluacion = $this->getPost('evaluaciones');
+        $observaciones = $this->getPost('observaciones');
         
     }
 
