@@ -3,22 +3,85 @@
 {% block content %}
     <div class="container">
         <br><br>
-        {{ dump(silabo) }}
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Silabo de {{ silabo.nombreCarrera }}</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ped</td>
+                    <td>{{ silabo.nombrePed }}</td>
+                </tr>
+                <tr>
+                    <td>Carrera</td>
+                    <td>{{ silabo.nombreCarrera }}</td>
+                </tr>
+                <tr>
+                    <td>Asignatura</td>
+                    <td>{{ silabo.nombreAsignatura }}</td>
+                </tr>
+                <tr>
+                    <td>CodigoGrupo</td>
+                    <td>{{ silabo.CodigoGrupo }}</td>
+                </tr>
+                <tr>
+                    <td>CodAsignatura</td>
+                    <td>{{silabo.CodAsignatura}}</td>
+                </tr>
+                <tr>
+                    <td>AnioCarrera</td>
+                    <td>{{ silabo.AnioCarrera }}</td>
+                </tr>
+                <tr>
+                    <td>HorasClase</td>
+                    <td>{{ silabo.HorasClase }}</td>
+                </tr>
+                <tr>
+                    <td>HorasPrecenciales</td>
+                    <td>{{ silabo.HorasPrecenciales}}</td>
+                </tr>
+                <tr>
+                    <td>HorasIndependientes</td>
+                    <td>{{ silabo.HorasClase }}</td>
+                </tr>
+                <tr>
+                    <td>Modalidad</td>
+                    <td>{{ silabo.Modalidad }}</td>
+                </tr>
+                <tr>
+                    <td>Trimestre</td>
+                    <td>{{ silabo.Trimestre }}</td>
+                </tr>
+                <tr>
+                    <td>TipoEvaluacion</td>
+                    <td>{{ silabo.TipoEvaluacion }}</td>
+                </tr>
+                <tr>
+                    <td>AnioLectivo</td>
+                    <td>{{ silabo.AnioLectivo }}</td>
+                </tr>
+                <tr>
+                    <td>Facilitador</td>
+                    <td>{{ silabo.Facilitador }}</td>
+                </tr>
+                <tr>
+                    <td>nombreCarrera</td>
+                    <td>{{ silabo.nombreCarrera }}</td>
+                </tr>
+                <tr>
+                    <td>nombreAsignatura</td>
+                    <td>{{ silabo.nombreAsignatura }}</td>
+                </tr>
+                <tr>
+                    <td>nombrePed</td>
+                    <td>{{ silabo.nombrePed }}</td>
+                </tr>
+            </tbody>
+        </table>
+
         <form>
             <div class="row">
                 <div class="input-field col s6">
