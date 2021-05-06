@@ -4,8 +4,9 @@
     <div class="container">
         {% if nueva_entrada %}
             <div class="valign-wrapper">
-                <h5>Se agrego una nueva entrada al silabo</h5>
+                <h5>Se agrego una nueva entrada al silabo con id: {{ silabo_id }}</h5>
             </div>
+            <a href="./agregar_silabo_datos/{{ silabo_id }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Agregar datos</a>
         {% endif %}
         <br>
         <br>
@@ -72,11 +73,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input placeholder="Código de la Asignatura" id="codigo_de_la_asignatura" type="text" class="validate" name='codigo_signatura'>
+                        <input placeholder="Código de la Asignatura" name="codigo_de_la_asignatura" type="text" class="validate">
                         <label for="codigo_de_la_Asignatura"></label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="codigo_de_grupo" type="text" class="validate" name='codigo_grupo'>
+                        <input name="codigo_de_grupo" type="text" class="validate" name='codigo_grupo'>
                         <label for="codigo_de_grupo">Código de grupo</label>
                     </div>
                 </div>
@@ -90,16 +91,16 @@
                         <label>Modalidad</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="no_total_horas" type="number" class="validate" name='no_total_horas'>
+                        <input name="no_total_horas" type="number" class="validate">
                         <label for="no_total_horas">No. Total de Horas</label>
                     </div>
                 </div>
                 <div class="input-field col s6">
-                    <input id="horas_presenciales" type="number" class="validate" name='horas_presenciales'>
+                    <input name="horas_presenciales" type="number" class="validate">
                     <label for="horas_presenciales">Horas Presenciales</label>
                 </div> 
                 <div class="input-field col s6">
-                    <input id="horas_est_independ" type="number" class="validate" name='horas_est_independ'>
+                    <input name="horas_est_independ" type="number" class="validate">
                     <label for="horas_est_independ">Horas de Estudio Independiente</label>
                 </div> 
                 <div class="row">
@@ -113,12 +114,12 @@
                         <label>Evaluación</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="año" type="number" class="validate" name='anio_lectivo'>
+                        <input type="number" class="validate" name='anio_lectivo'>
                         <label for="año">Año Lectivo</label>
                     </div>
                 </div>  
                 <div class="input-field col s6">
-                    <input id="facilitador" type="text" class="validate" name='facilitador'>
+                    <input name="facilitador" type="text" class="validate">
                     <label for="facilitador">Facilitador</label>
                 </div>
                 <br>

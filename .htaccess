@@ -24,6 +24,7 @@ RewriteRule ^api/user/(\w+)*$ ./api.php?p=user&user=$1
 
 RewriteRule ^(\w+)*$ ./index.php?p=$1
 RewriteRule ^user/(\w+)*$ ./index.php?p=user&user=$1
+RewriteRule ^agregar_silabo_datos/(\d+)*$ ./index.php?p=agregar_silabo_datos&id=$1
 
 <Files config.ini>
     order allow,deny

@@ -48,8 +48,8 @@ class AgregarSilabo extends Page {
         $IdPed = $this->getPost('Municipios');
         $IdCarrera = $this->getPost('carrera');
         $IdAsignatura = $this->getPost('Asignaturas');
-        $CodGrupo = $this->getPost('codigo_grupo');
-        $CodAsignatura = $this->getPost('codigo_signatura');
+        $CodGrupo = $this->getPost('codigo_de_grupo');
+        $CodAsignatura = $this->getPost('codigo_de_la_asignatura');
         $AnioCarrera = $this->getPost('Anio_Carrera');
         $HorasCalse = $this->getPost('no_total_horas');
         $HorasPrecenciales = $this->getPost('horas_presenciales');
@@ -63,6 +63,7 @@ class AgregarSilabo extends Page {
         $agregar = $this->SilaboEntradas->agregarEntrada($IdPed, $IdCarrera, $IdAsignatura, $CodGrupo, $CodAsignatura, $AnioCarrera, $HorasCalse, $HorasPrecenciales, $HorasIndependientes, $Modalidad, $Trimestre, $TipoEvaluacion, $AnioLectivo, $Facilitador);
         if ($agregar === true) {
             $this->setVar('nueva_entrada', true);
+            $this->setVar('silabo_id', $this->Extended()->Database()->getLastId());
         }
     }
 
