@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Lista de silabos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ver</th>
+                    <th>Nombre asignatura</th>
+                    <th>Codigo de grupo</th>
+                    <th>Año de la carrera</th>
+                    <th>Facilitador</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for silabo in silabos %}
+                    <tr>
+                        <td><a class="waves-effect waves-light btn-small" href="./agregar_silabo_datos/{{ silabo.Id_Silabo }}">Ver</a></td>
+                        <td>{{ silabo.nombreAsignatura }}</td>
+                        <td>{{ silabo.CodigoGrupo }}</td>
+                        <td>{{ silabo.AnioCarrera }}</td>
+                        <td>{{ silabo.Facilitador }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+

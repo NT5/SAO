@@ -71,4 +71,86 @@ where se.Id_Silabo = $id";
         return $datos;
     }
 
+    public function obtenerListaDeSilabos() {
+        $db = $this->Extended()->Database();
+
+        $sql = "SELECT 
+            se.*,
+            asig.Nombre AS nombreAsignatura
+            FROM silabo_entradas AS se 
+            INNER JOIN asignaturas AS asig
+            ON se.Id_Asignatura = asig.Id_Asignatura";
+
+        $prodecimento = $db->query($sql);
+        $datos = $prodecimento->fetch_all(MYSQLI_ASSOC);
+        return $datos;
+    }
+
+    public function agregarDatosSilabo(
+            int $id_silabo,
+            int $n_encuentro,
+            string $fecha_encuentro,
+            string $unidad,
+            string $objetivos_unidad,
+            string $contenidos_tematicos,
+            string $formas_ensenanzas,
+            string $metodologias,
+            int $h_precenciales,
+            int $h_estudio_independiente,
+            string $evaluacion,
+            string $observaciones
+    ) {
+        $db = $this->Extended()->Database();
+
+        $sql = "INSERT INTO silabo_datos 
+	(
+            id_silabo, 
+            n_encuentro, 
+            fecha_encuentro, 
+            unidad, 
+            objetivos_unidad, 
+            contenidos_tematicos, 
+            formas_ensenanzas, 
+            metodologias, 
+            h_precenciales, 
+            h_estudio_independiente, 
+            evaluacion, 
+            observaciones
+        ) 
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $prodecimento = $db->prepare($sql);
+        $prodecimento->bind_param(
+                "iissssssiiss",
+                $id_silabo,
+                $n_encuentro,
+                $fecha_encuentro,
+                $unidad,
+                $objetivos_unidad,
+                $contenidos_tematicos,
+                $formas_ensenanzas,
+                $metodologias,
+                $h_precenciales,
+                $h_estudio_independiente,
+                $evaluacion,
+                $observaciones
+        );
+        $prodecimento->execute();
+        if ($prodecimento->errno) {
+            var_dump($prodecimento);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function obtenerDatosSilabo(int $id_silabo) {
+        $db = $this->Extended()->Database();
+        $sql = "SELECT * FROM silabo_datos WHERE id_silabo = $id_silabo";
+
+        $prodecimento = $db->query($sql);
+        $datos = $prodecimento->fetch_all(MYSQLI_ASSOC);
+        return $datos;
+    }
+
 }
